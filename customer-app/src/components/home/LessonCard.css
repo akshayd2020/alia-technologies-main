@@ -1,0 +1,24 @@
+.lesson-card {
+    background-color: white;
+    width: 110px;
+    height: 75px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.lesson-title {
+    color: black;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.check {
+    
+}
+
+.more-points-footer {
+    font-size: large;
+    font-weight: 600;
+    padding: 20px;
+}

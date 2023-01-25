@@ -1,0 +1,146 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Merchant {
+  id        Int       @id @default(autoincrement())
+  title     String
+  url       String
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+  lessons   Lesson[]
+  rewards   Reward[]
+  themes    Theme[]
+  users     User[]
+}
+
+model User {
+  id                 Int                 @id @default(autoincrement())
+  cooldownTime       DateTime?
+  createdAt          DateTime            @default(now())
+  currentPoints      Int                 @default(0)
+  deletedAt          DateTime?
+  lifetimePoints     Int                 @default(0)
+  merchantId         Int
+  name               String
+  shopifyCustomerID  Int
+  merchant           Merchant            @relation(fields: [merchantId], references: [id])
+  completedLessons   CompletedLesson[]
+  completedQuestions CompletedQuestion[]
+  claimedRewards     ClaimedReward[]
+}
+
+model Lesson {
+  id               Int               @id @default(autoincrement())
+  name             String
+  body             String
+  merchantID       Int
+  cooldownDuration Int?
+  enabled          Boolean
+  index Int
+  createdAt        DateTime          @default(now())
+  deletedAt        DateTime?
+  merchant         Merchant          @relation(fields: [merchantID], references: [id])
+  completedLessons CompletedLesson[]
+  contents         Content[]
+}
+
+model Reward {
+  id             Int             @id @default(autoincrement())
+  merchantId     Int
+  pointCost      Int
+  rewardVal      Int?
+  rewardPer      Decimal?
+  enabled        Boolean
+  userCapacity   Int?
+  createdAt      DateTime        @default(now())
+  deletedAt      DateTime?
+  shopifyCode    String
+  merchant       Merchant        @relation(fields: [merchantId], references: [id])
+  claimedRewards ClaimedReward[]
+}
+
+model ClaimedReward {
+  id        Int       @id @default(autoincrement())
+  userID    Int
+  rewardId  Int
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+  reward    Reward    @relation(fields: [rewardId], references: [id])
+  user      User      @relation(fields: [userID], references: [id])
+}
+
+model Question {
+  id Int @id @default(autoincrement())
+  index Int
+  pointValue Int
+  body String
+  answerChoices String[]
+  correctAnswer Int
+  content Content @relation(fields: [contentID], references: [id])
+  contentID Int
+  createdAt DateTime @default(now())
+  deletedAt DateTime?
+  completedQuestions CompletedQuestion[]
+}
+
+model Content {
+  id Int @id @default(autoincrement())
+  lesson Lesson @relation(fields: [lessonID], references: [id])
+  lessonID Int
+  questions Question[]
+  index Int
+  body String?
+  videoURL String?
+  createdAt DateTime @default(now())
+  deletedAt DateTime?
+}
+
+model CompletedQuestion {
+  id         Int       @id @default(autoincrement())
+  questionID Int
+  user User @relation(fields: [userID], references: [id])
+  userID Int
+  question Question @relation(fields: [questionID], references: [id])
+  createdAt DateTime @default(now())
+  deletedAt DateTime?
+}
+
+model CompletedLesson {
+  id Int @id @default(autoincrement())
+  lesson Lesson @relation(fields: [lessonID], references: [id])
+  lessonID Int
+  user User @relation(fields: [userID], references: [id])
+  userID Int
+  cooldownDuration Int
+  createdAt DateTime @default(now())
+  deletedAt DateTime?
+}
+
+model Theme {
+  id         Int       @id @default(autoincrement())
+  merchantId Int
+  colorSet   Int
+  iconSet    Int
+  font       Int
+  createdAt  DateTime  @default(now())
+  deletedAt  DateTime?
+  merchant   Merchant  @relation(fields: [merchantId], references: [id])
+}
+
+model shopify_sessions {
+  id               String  @id @db.VarChar(255)
+  shop             String  @db.VarChar(255)
+  state            String  @db.VarChar(255)
+  isonline         Boolean
+  scope            String? @db.VarChar(255)
+  expires          Int?
+  onlineaccessinfo String? @db.VarChar(255)
+  accesstoken      String? @db.VarChar(255)
+}

@@ -1,0 +1,172 @@
+CREATE REWARD
+mutation createReward($rewardData: RewardData!){
+    createReward(rewardData : $rewardData){
+            id
+            rewardPer
+    }
+}
+variables
+ {
+     "rewardData" : {
+    "merchantID": 1,
+    "pointCost": 500,
+    "rewardPer": 20,
+    "enabled": true
+  }}
+CREATE MERCHANT
+mutation {
+    createMerchant (
+        title: "shopifyMerchant"
+        url: "alia-learn-development-store.myshopify.com"
+    ) {
+        id
+    }
+}
+CREATE LESSON
+mutation createL($data: CreateLessonData!) {
+                        createLesson(
+                            data: $data
+                        ) {
+                            id
+                            index
+                            name
+                            body
+                            merchantID
+                            cooldownDuration
+                            enabled
+                            contents {
+                                id
+                                body
+                                index
+                                videoURL
+                            }
+                        }
+                    }
+VARIABLES (use id from create merchant)
+{
+        "data": {
+          "index": 0,
+          "name": "EmBeba",
+          "body": "Learn about EmBeba!",
+          "merchantID": 1,
+          "cooldownDuration": 0,
+          "enabled": true,
+          "contents": [
+            {
+              "body": "Safety & Efficacy. Our ingredients will always be: Safe, Clean, Purposeful, Soothing. Our ingredients will never include: Fillers, Added Fragrances, Phthalates, Parabens. ",
+              "index": 0
+            },
+            {
+              "body": "Sustainability & Equality. EmBeba products are made with packaging for the planet. This is done by using less-plastic packaging and reusable packaging! Healthy Skin = Healthy Planet = Healthy Skin. For example, our Diaper Balm turns into a coveted box for crayons or a colorful seed starter.",
+              "index": 1
+        }
+     ]
+}
+}
+{
+        "data": {
+          "index": 1,
+          "name": "RickA.co",
+          "body": "Learn about RickA",
+          "merchantID": 1,
+          "cooldownDuration": 0,
+          "enabled": true,
+          "contents": [
+            {
+              "body": "RickA is a famous musician who's music video Never Gonna Give You Up is commonly used to suprise and RickRoll people",
+              "index": 0,
+	      "videoURL": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+            },
+            {
+              "body": "As an april fools joke, youtube directed every video on its homepage to the video in 2008",
+              "index": 1
+        }
+     ]
+}
+}
+CREATE QUESTIONS
+  mutation updateContent($id: ID!,  $questions: [QuestionData]!) {
+  updateContent(id :$id, questions:$questions)
+                        {
+                            id
+                            questions {
+                                id
+                                body
+                                index
+                                contentID
+                            }
+                        }
+                    }
+VARIABLES(use id from create from create lesson, use contentID from create lesson, to add questions to different content change contentID)
+{
+    "id": (first content ID),
+
+    "questions": [ {
+
+                 "index": 0,
+                 "answerChoices": ["Cruelty free", "Untested", "Not safe"],
+                  "correctAnswer": 0,
+                  "body": "Embeba products are",
+                    "pointValue": 100
+                  },
+                   {
+
+
+                  "index": 0,
+                 "answerChoices": ["Whole Foods Certified", "Filled with added fragrances"],
+                  "correctAnswer": 1,
+                  "body": "Embeba products are not",
+                    "pointValue": 50
+                  }
+              ]
+            }
+{
+"id": (Second content ID),
+
+    "questions": [ {
+
+                 "index": 0,
+                 "answerChoices": ["True", "False"],
+                  "correctAnswer": 0,
+                  "body": "EmBeba helps the environment by using less-plastic packaging and reusable packaging",
+                    "pointValue": 100
+                  }
+              ]
+            }
+
+/// variables for lesson 2
+{
+    "id": (first content ID),
+
+    "questions": [ {
+
+                 "index": 0,
+                 "answerChoices": ["YES"],
+                  "correctAnswer": 0,
+                  "body": "Are you glad to see Rick!",
+                    "pointValue": 100
+                  },
+                   {
+
+
+                  "index": 0,
+                 "answerChoices": ["Rickfall", "RickDive", "RickJump","RickRoll"],
+                  "correctAnswer": 3,
+                  "body": "What term is used to describe an unexpected appearance of this video?",
+                    "pointValue": 50
+                  }
+              ]
+            }
+{
+"id": (Second content ID),
+
+    "questions": [ {
+
+                 "index": 0,
+                 "answerChoices": ["1999", "2008", "2028", "2007"],
+                  "correctAnswer": 1,
+                  "body": "In what year did youtube RickRoll users on their site?",
+                    "pointValue": 100
+                  }
+              ]
+            }

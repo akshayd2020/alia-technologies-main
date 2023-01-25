@@ -1,0 +1,31 @@
+.question-number {
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.content-container {
+    margin: 1em 2em;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.correct {
+    background-color: #9ECD92;
+}
+
+.incorrect {
+    background-color: #ffec8b;
+}
+
+.incomplete {
+    background-color: #8E8E8E;
+}
+
+.content-title {
+    font-weight: 600;
+    font-size: large;
+    margin: 20px 0px;
+}

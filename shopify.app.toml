@@ -1,0 +1,4 @@
+# This file stores configurations for your Shopify app.
+name = "Alia"
+scopes = "write_products, write_discounts"
+extension_directories = ["extensions/*"]

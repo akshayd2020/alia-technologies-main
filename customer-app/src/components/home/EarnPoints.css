@@ -1,0 +1,22 @@
+.earn-points-card {
+    width: 90%;
+	background-color: #D9D9D9;
+	fill-opacity: 10%;
+	padding: 0px 10px;
+	border-radius: 15px;
+	margin: auto;
+	margin-bottom: 3%;
+}
+
+.earn-points-label {
+    padding: 20px;
+    font-size: xx-large;
+    font-weight: 600;
+
+}
+
+.more-points-footer {
+    font-size: large;
+    font-weight: 600;
+    padding: 20px;
+}

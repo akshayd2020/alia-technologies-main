@@ -1,0 +1,59 @@
+.progress-bar-container {
+    margin-top: 15px;
+}
+
+.single-question {
+    text-align: center;
+
+}
+.question-wrapper {
+    text-align: center;
+}
+
+.multi-question {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.node-connector {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-left: -3px;
+}
+
+.connector {
+    margin-left: -3px;
+}
+
+.last-node {
+    margin-left: -3px;
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.correct {
+    background-color: #9ecd92;
+}
+
+.incorrect {
+    background-color: #ffec8b;
+}
+
+.incomplete {
+    background-color: #b7b7b7;
+}
+
+.current {
+    background-color: #636569;
+}

@@ -1,0 +1,85 @@
+.qHeader{
+    font-size: x-large;
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-bottom: 1%;
+    font-weight: 200;
+}
+
+.boldHead{
+    font-size: large;
+    font-weight: 800;
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.greyBox{
+    height: 100%;
+    width: 50%;
+    margin-top: 3%;
+    background-color: rgb(177, 172, 172);
+    border-radius: 10px;
+}
+.yellowBox{
+    height: 100%;
+    width: 50%;
+    margin-top: 3%;
+    background-color: lightyellow;
+    border-radius: 10px;
+}
+.greenBox{
+    height: 100%;
+    width: 50%;
+    margin-top: 3%;
+    background-color: lightgreen;
+    border-radius: 10px;
+}
+
+.question{
+    padding-top: 2%;
+    padding-right: 3%;
+    margin-left: 4%;
+    font-weight: 500;
+    font-size: large;
+}
+
+.body{
+    padding-top: 2%;
+    margin-left: 4%;
+    font-weight: 500;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+}
+
+.submit{
+    height: 5%;
+    
+}
+
+.choice{
+    padding-top: 3%;
+    margin: 10%;
+    height:10%;
+    background-color: white;
+    font-size: x-large;
+    padding-bottom: 2%;
+    padding-left: 25%;
+    font-weight: 500;
+}
+
+.choiceChosen{
+    padding-top: 3%;
+    margin: 10%;
+    height:10%;
+    border: 2px solid black;
+    background-color: white;
+    font-size: x-large;
+    padding-bottom: 2%;
+    padding-left: 35%;
+    font-weight: 500;
+}
+
+.submit{
+    padding-left: 45%;
+}

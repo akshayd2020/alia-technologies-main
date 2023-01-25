@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  # backend:
+    # image: node:18-alpine
+    # build: .
+    # environment:
+    #   - SHOPIFY_API_KEY=$SHOPIFY_API_KEY
+    #   - SHOPIFY_ALIA_LEARN_EXT_ID=$SHOPIFY_ALIA_LEARN_EXT_ID
+      # - SHOPIFY_API_SECRET=$SHOPIFY_API_SECRET_KEY
+      # - SCOPES=$SHOPIFY_SCOPES
+      # - DB_USER=$DB_USER
+      # - DB_PASSWORD=$DB_PASSWORD
+    # ports:
+    #   - "$BACKEND_PORT:8081"
+    # volumes:
+      # - "./backend:/app"
+      # - "./customer-app/public:/customer-app"
+      # - "./merchant-app/:/merchant-app"
+    #   - ".:/app"
+    # depends_on:
+    #   - customer-app
+      # - merchant-app
+    # working_dir: /app
+    # entrypoint: npm run dev
+    # working_dir: "/app"
+    # entrypoint: sh -c \
+    #   "npm install --save \
+    #   cd /app/backend \
+    #   npm install --save \
+    #   cd /app/merchant-app \
+    #   npm install --save \
+    #   cd /app \
+    #   npm run dev"
+    # entrypoint: sh -c "npm install --save && npm run build"
+    
+  # customer-app:
+  #   image: node:18-alpine
+  #   volumes:
+  #     - "./customer-app:/app"
+  #   ports:
+  #     - "3000:3000"
+  #   working_dir: "/app"
+  #   entrypoint: sh -c "npm install --save && npm run start"
+  
+  # merchant-app:
+  #   image: node:18-alpine
+  #   volumes:
+  #     - "./merchant-app:/app"
+  #   environment:
+  #     - SHOPIFY_API_KEY=$SHOPIFY_API_KEY
+  #   working_dir: "/app"
+  #   entrypoint: sh -c "npm install --save && npm run dev"
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DB=$DB_NAME

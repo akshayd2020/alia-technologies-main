@@ -1,0 +1,44 @@
+.box {
+	width: 90%;
+	height: 130px;
+	background-color: #D9D9D9;
+	fill-opacity: 10%;
+	padding: 0px 10px;
+	border-radius: 15px;
+	margin: auto;
+	margin-bottom: 3%;
+
+}
+
+.progress {
+	padding-bottom: 3%;
+	padding-left: 3%;
+}
+
+.arrow {
+	font-size: 36px !important;
+}
+
+.material-icons {
+	padding-left: 3%;
+	vertical-align: middle;
+	font-size: 36px;
+}
+
+.redeem {
+	padding-left: 10px;
+	padding-top: 20px;
+	font-size: xx-large;
+    font-weight: 600;
+}
+
+.nextLabel{
+	padding-left: 10px;
+	margin-top: 1%;
+	font-weight: 500;
+}
+
+.nextReward{
+	padding-left: 10px;
+	padding-bottom: 10px;
+}

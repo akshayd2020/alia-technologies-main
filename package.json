@@ -1,0 +1,21 @@
+{
+  "name": "alia-learn",
+  "version": "1.0.0",
+  "main": "backend/index.ts",
+  "license": "UNLICENSED",
+  "scripts": {
+    "shopify": "shopify",
+    "build": "shopify app build",
+    "dev": "shopify app dev",
+    "info": "shopify app info",
+    "scaffold": "shopify app scaffold",
+    "deploy": "shopify app deploy",
+    "db-up": "docker compose up -d db",
+    "db-down": "docker compose down"
+  },
+  "dependencies": {
+    "@shopify/app": "3.9.2",
+    "@shopify/cli": "3.9.2"
+  },
+  "author": "nsalesky"
+}
